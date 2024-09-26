@@ -1,0 +1,25 @@
+class Solution {
+    // Function to find maximum number of consecutive steps
+    // to gain an increase in altitude with each step.
+    public int maxStep(int arr[]) {
+        // Initialize current step count and maximum step count.
+        int curr_count = 0;
+        int max_count = 0;
+
+        // Iterate through the array starting from the second element.
+        for(int i = 1; i < arr.length; i++) {
+            // If the current building is taller than the previous one.
+            if(arr[i] > arr[i-1]) {
+                curr_count++; // Increase current step count.
+            } else {
+                curr_count = 0; // Reset current count if it's not an increase.
+            }
+            
+            // Update max_count if current sequence is longer.
+            max_count = Math.max(max_count, curr_count);
+        }
+
+        // Return the maximum number of consecutive steps.
+        return max_count;
+    }
+}
