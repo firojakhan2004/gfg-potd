@@ -1,0 +1,24 @@
+class Solution {
+    static final long MOD = 1000000007;
+    
+    // Function to multiply two linked lists
+    public long multiplyTwoLists(Node first, Node second) {
+        // Convert both linked lists to numbers
+        long num1 = 0, num2 = 0;
+        
+        // Traverse the first linked list
+        while (first != null) {
+            num1 = (num1 * 10 + first.data) % MOD;
+            first = first.next;
+        }
+        
+        // Traverse the second linked list
+        while (second != null) {
+            num2 = (num2 * 10 + second.data) % MOD;
+            second = second.next;
+        }
+        
+        // Multiply the two numbers and take modulo
+        return (num1 * num2) % MOD;
+    }
+}
